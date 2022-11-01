@@ -9,7 +9,6 @@ module.exports = {
 	},
 	moduleNameMapper: {
 		'src/(.*)': '<rootDir>/src/$1',
-		'a/(.*)': '<rootDir>/src/a/$1',
 		'math/(.*)': '<rootDir>/src/math/$1',
 	},
 	moduleDirectories: ['node_modules', 'src'],
