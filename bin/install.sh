@@ -40,10 +40,11 @@ then
 	repo="$( basename "$( pwd; )" )"
 fi
 
-package="./package.json"
-nodemon="./nodemon.json"
-index="./src/index.ts"
-readme="./README.md"
+baseDir="$(dirname "$0")"
+package="$baseDir/../package.json"
+nodemon="$baseDir/../nodemon.json"
+index="$baseDir/../src/index.ts"
+readme="$baseDir/../README.md"
 
 sed "2d;4d;5d;8d;19d" -i $package
 sed "1 a \\\t\"name\": \"$name\"," -i $package
@@ -64,3 +65,5 @@ touch $readme
 echo "# $name" >> $readme
 echo "" >> $readme
 echo "$description" >> $readme
+
+rm "$( pwd;  )/install.sh"
