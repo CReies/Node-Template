@@ -19,9 +19,11 @@
 		"url": "https://github.com/CReies/Node-Template.git"
 	},
 	"dependencies": {
+		"debug": "4.3.4",
 		"dotenv-safe": "8.2.0"
 	},
 	"devDependencies": {
+		"@types/debug": "4.1.7",
 		"@types/dotenv-safe": "8.1.2",
 		"@types/jest": "29.2.1",
 		"@types/node": "18.11.9",
