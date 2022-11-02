@@ -1,7 +1,7 @@
 #!bin/sh
 
 pnpm i;
-mv ./.env.example ./.env.a
+mv ./.env.example ./.env
 
 while getopts n:d:m: flag
 do
