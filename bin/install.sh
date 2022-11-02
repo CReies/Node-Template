@@ -66,4 +66,4 @@ echo "# $name" >> $readme
 echo "" >> $readme
 echo "$description" >> $readme
 
-rm "$( pwd;  )/install.sh"
+rm "$baseDir/install.sh"
