@@ -48,7 +48,7 @@ readme="./README.md"
 sed "2d;4d;5d;8d;19d" -i $package
 sed "1 a \\\t\"name\": \"$name\"," -i $package
 sed "3 a \\\t\"description\": \"$description\"," -i $package
-sed "4 a \\\t\"main\": \"src\/$main.ts\"," -i $package
+sed "4 a \\\t\"main\": \".\/src\/$main.ts\"," -i $package
 sed	"7 a \\\t\"start:prod\": \"node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/$main.js\"," -i $package
 sed	"18 a \\\t\t\"url\": \"https:\/\/github.com\/$user\/$repo.git\"" -i $package
 
@@ -57,7 +57,7 @@ sed "4 a \\\t\"exec\": \"ts-node -r tsconfig-paths/register ./src/$main.ts\"," -
 
 sed "s/Index/$main/g" -i $index
 
-mv $index ./src/"$main".ts
+git mv $index ./src/"$main".ts
 
 rm $readme
 touch $readme
