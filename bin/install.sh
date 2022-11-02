@@ -40,16 +40,27 @@ then
 	repo="$( basename "$( pwd; )" )"
 fi
 
-sed "2d;4d;5d;8d;19d" -i ./package.json
-sed "1 a \\\t\"name\": \"$name\"," -i ./package.json
-sed "3 a \\\t\"description\": \"$description\"," -i ./package.json
-sed "4 a \\\t\"main\": \"src\/$main.ts\"," -i ./package.json
-sed	"7 a \\\t\"start:prod\": \"node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/$main.js\"," -i package.json
-sed	"18 a \\\t\t\"url\": \"https:\/\/github.com\/$user\/$repo.git\"" -i package.json
+package="./package.json"
+nodemon="./nodemon.json"
+index="./src/index.ts"
+readme="./README.md"
 
-sed "5d" -i ./nodemon.json
-sed "4 a \\\t\"exec\": \"ts-node -r tsconfig-paths/register ./src/$main.ts\"," -i ./nodemon.json
+sed "2d;4d;5d;8d;19d" -i $package
+sed "1 a \\\t\"name\": \"$name\"," -i $package
+sed "3 a \\\t\"description\": \"$description\"," -i $package
+sed "4 a \\\t\"main\": \"src\/$main.ts\"," -i $package
+sed	"7 a \\\t\"start:prod\": \"node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/$main.js\"," -i $package
+sed	"18 a \\\t\t\"url\": \"https:\/\/github.com\/$user\/$repo.git\"" -i $package
 
-sed "s/Index/$main/g" ./src/index.ts
+sed "5d" -i $nodemon
+sed "4 a \\\t\"exec\": \"ts-node -r tsconfig-paths/register ./src/$main.ts\"," -i $nodemon
 
-mv ./src/index.ts ./src/"$main".ts
+sed "s/Index/$main/g" -i $index
+
+mv $index ./src/"$main".ts
+
+rm $readme
+touch $readme
+echo "# $name" >> $readme
+echo "" >> $readme
+echo "$description" >> $readme
