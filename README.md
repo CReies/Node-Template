@@ -9,7 +9,7 @@ This is a template to begin any node project with typescript, eslint, prettier a
 The template has a script to install it, it uses pnpm
 
 ```bash
-sh ./install.sh
+sh ./install.sh -n $nameOfTheProject -d $description -m $mainFileName
 ```
 
 ## Creating a New Directory
