@@ -5,12 +5,12 @@
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"module": "commonjs",
-		"rootDir": "./",
+		"rootDir": "./src",
 		"moduleResolution": "node",
-		"baseUrl": "./",
+		"baseUrl": "./src",
 		"paths": {
-			"@src/*": ["./src/*"],
-			"@math/*": ["./src/math/*"]
+			"@src/*": ["./*"],
+			"@math/*": ["./math/*"]
 		},
 		"allowJs": true,
 		"outDir": "dist",
