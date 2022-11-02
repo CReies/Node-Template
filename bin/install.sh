@@ -49,3 +49,7 @@ sed	"18 a \\\t\t\"url\": \"https:\/\/github.com\/$user\/$repo.git\"" -i package.
 
 sed "5d" -i ./nodemon.json
 sed "4 a \\\t\"exec\": \"ts-node -r tsconfig-paths/register ./src/$main.ts\"," -i ./nodemon.json
+
+sed "s/Index/$main/g" ./src/index.ts
+
+mv ./src/index.ts ./src/"$main".ts
